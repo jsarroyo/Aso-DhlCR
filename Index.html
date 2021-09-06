@@ -1,299 +1,89 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.ico">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-	<title>ASO DHL</title>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.0.1/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.0.1/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.0.1/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-	<!--     Fonts and icons     -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-	<!-- CSS Files -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/css/material-bootstrap-wizard.css" rel="stylesheet" />
-
-	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link href="assets/css/demo.css" rel="stylesheet" />
-</head>
-
-<body>
-	<div class="image-container" style="background-image: url('assets/img/dhl-logo.svg')">
-	    <!--   Creative Tim Branding   -->
-	    <a href="https://aso-dhlcr.web.app/">
-	         <div class="logo-container">
-	            <div class="logo">
-	                <img src="assets/img/new_logo.png">
-	            </div>
-	            <div class="brand">
-	                ASO DHL
-	            </div>
-	        </div>
-	    </a>
-
-		<!--  Made With Material Kit  -->
-		<a href="http://demos.creative-tim.com/material-kit/index.html?ref=material-bootstrap-wizard" class="made-with-mk">
-			<div class="brand">MK</div>
-			<div class="made-with">Made with <strong>Material Kit</strong></div>
-		</a>
-
-	    <!--   Big container   -->
-	    <div class="container">
-	        <div class="row">
-		        <div class="col-sm-8 col-sm-offset-2">
-		            <!--      Wizard container        -->
-		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="green" id="wizardProfile">
-		                    <form action="" method="">
-		                <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-
-		                    	<div class="wizard-header">
-		                        	<h3 class="wizard-title">
-		                        	   Registre su Solicitud
-		                        	</h3>
-									<h5>Esto nos permite saber el tipo de solicitud, esperamos ayudarle pronto.</h5>
-		                    	</div>
-								<div class="wizard-navigation">
-									<ul>
-			                            <li><a href="#about" data-toggle="tab">Iniciar Solicitud</a></li>
-			                            <li><a href="#requesttype" data-toggle="tab">Tipo de solicitud</a></li>
-										<li><a href="#documents" data-toggle="tab">Subir documentos</a></li>
-			                            <li><a href="#finishing" data-toggle="tab">Finalizar Solicutud</a></li>
-			                        </ul>
-								</div>
-
-		                        <div class="tab-content">
-		                            <div class="tab-pane" id="about">
-		                              <div class="row">
-		                                	<h4 class="info-text"> Información Básica</h4>
-		                                	<div class="col-sm-4 col-sm-offset-1">
-		                                    	<div class="picture-container">
-		                                        	<div class="picture">
-                                        				<img src="assets/img/dhl-perfilphoto.gif" class="picture-src" id="wizardPicturePreview" title=""/>
-		                                            	<input type="file" id="wizard-picture">
-		                                        	</div>
-		                                        	<h6>Elija una imagen</h6>
-		                                    	</div>
-		                                	</div>
-		                                	<div class="col-sm-6">
-												<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">face</i>
-													</span>
-													<div class="form-group label-floating">
-			                                          <label class="control-label">Nombre <small>(requerido)</small></label>
-			                                          <input name="firstname" type="text" class="form-control">
-			                                        </div>
-												</div>
-
-												<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">record_voice_over</i>
-													</span>
-													<div class="form-group label-floating">
-													  <label class="control-label">Apellidos <small>(requerido)</small></label>
-													  <input name="lastname" type="text" class="form-control">
-													</div>
-												</div>
-		                                	</div>
-		                                	<div class="col-sm-10 col-sm-offset-1">
-												<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">email</i>
-													</span>
-													<div class="form-group label-floating">
-			                                            <label class="control-label">Email <small>(requerido)</small></label>
-			                                            <input name="email" type="email" class="form-control">
-			                                        </div>
-												</div>
-		                                	</div>
-		                            	</div>
-		                            </div>
-									<div class="tab-pane" id="requesttype">
-		                                <h4 class="info-text">¿Que desea hacer?</h4>
-		                                <div class="row">
-		                                    <div class="col-sm-10 col-sm-offset-1">
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="PP">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-pencil"></i>
-		                                                </div>
-		                                                <h6>Préstamo Personal</h6>
-		                                            </div>
-		                                        </div>
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="AN">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-terminal"></i>
-		                                                </div>
-		                                                <h6>Ahorro Navideño</h6>
-		                                            </div>
-		                                        </div>
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="AP">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-laptop"></i>
-		                                                </div>
-		                                                <h6>Ahorro a Plazo</h6>
-		                                            </div>
-		                                        </div>
-		                                    </div>
-		                                </div>
-										<div class="row">
-		                                    <div class="col-sm-10 col-sm-offset-1">
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="EL">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-"></i>
-		                                                </div>
-		                                                <h6>Electrodomesticos</h6>
-		                                            </div>
-		                                        </div>
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="TE">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-terminal"></i>
-		                                                </div>
-		                                                <h6>Tecnología</h6>
-		                                            </div>
-		                                        </div>
-												<div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="TE">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-terminal"></i>
-		                                                </div>
-		                                                <h6>Otros</h6>
-		                                            </div>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                            <div class="tab-pane" id="documents">
-		                                <h4 class="info-text"> What are you doing? (checkboxes) </h4>
-		                                <div class="row">
-		                                    <div class="col-sm-10 col-sm-offset-1">
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="Design">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-pencil"></i>
-		                                                </div>
-		                                                <h6>Design</h6>
-		                                            </div>
-		                                        </div>
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="Code">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-terminal"></i>
-		                                                </div>
-		                                                <h6>Code</h6>
-		                                            </div>
-		                                        </div>
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="Develop">
-		                                                <div class="icon">
-		                                                    <i class="fa fa-laptop"></i>
-		                                                </div>
-		                                                <h6>Develop</h6>
-		                                            </div>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                            <div class="tab-pane" id="finishing">
-		                                <div class="row">
-		                                    <div class="col-sm-12">
-		                                        <h4 class="info-text"> Are you living in a nice area? </h4>
-		                                    </div>
-		                                    <div class="col-sm-7 col-sm-offset-1">
-	                                        	<div class="form-group label-floating">
-	                                        		<label class="control-label">Street Name</label>
-	                                    			<input type="text" class="form-control">
-	                                        	</div>
-		                                    </div>
-		                                    <div class="col-sm-3">
-		                                        <div class="form-group label-floating">
-		                                            <label class="control-label">Street Number</label>
-		                                            <input type="text" class="form-control">
-		                                        </div>
-		                                    </div>
-		                                    <div class="col-sm-5 col-sm-offset-1">
-		                                        <div class="form-group label-floating">
-		                                            <label class="control-label">City</label>
-		                                            <input type="text" class="form-control">
-		                                        </div>
-		                                    </div>
-		                                    <div class="col-sm-5">
-		                                        <div class="form-group label-floating">
-		                                            <label class="control-label">Country</label>
-	                                            	<select name="country" class="form-control">
-														<option disabled="" selected=""></option>
-	                                                	<option value="Afghanistan"> Afghanistan </option>
-	                                                	<option value="Albania"> Albania </option>
-	                                                	<option value="Algeria"> Algeria </option>
-	                                                	<option value="American Samoa"> American Samoa </option>
-	                                                	<option value="Andorra"> Andorra </option>
-	                                                	<option value="Angola"> Angola </option>
-	                                                	<option value="Anguilla"> Anguilla </option>
-	                                                	<option value="Antarctica"> Antarctica </option>
-	                                                	<option value="...">...</option>
-	                                            	</select>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <div class="wizard-footer">
-		                            <div class="pull-right">
-		                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next' value='Next' />
-		                                <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
-		                            </div>
-
-		                            <div class="pull-left">
-		                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
-		                            </div>
-		                            <div class="clearfix"></div>
-		                        </div>
-		                    </form>
-		                </div>
-		            </div> <!-- wizard container -->
-		        </div>
-	        </div><!-- end row -->
-	    </div> <!--  big container -->
-
-	    <div class="footer">
-	        <div class="container text-center">
-	             Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>. Free download <a href="http://www.creative-tim.com/product/bootstrap-wizard">here.</a>
-	        </div>
-	    </div>
-	</div>
-
-</body>
-	<!--   Core JS Files   -->
-    <script src="assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="assets/js/jquery.bootstrap.js" type="text/javascript"></script>
-
-	<!--  Plugin for the Wizard -->
-	<script src="assets/js/material-bootstrap-wizard.js"></script>
-
-    <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
-	<script src="assets/js/jquery.validate.min.js"></script>
-
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
